@@ -21,5 +21,57 @@ habits = db.Table('habits', metadata, autoload=True, autoload_with=engine)
 @app.route('/')
 @app.route('/index')
 def index():
-    keys = habits.columns.keys()
-    return render_template('index.html')
+    query = db.select([habits]).where(habits.columns.user_id == 'miva')
+    ResultProxy = connection.execute(query)
+    ResultSet = ResultProxy.fetchall()
+
+    total_results = []
+    for date in ResultSet:
+      daily_results = []
+
+      # Detect the date
+      daily_results.append(date[1])
+
+      # Detect 'snoozed'
+      if date[2] == 0:
+        daily_results.append('warning')
+      else:
+        daily_results.append('danger')
+
+      # Detect 'water_drank'
+      if date[7] == 1:
+        daily_results.append('warning')
+      else:
+        daily_results.append('danger')
+
+      # Detect 'teeth_brushed_am'
+      if date[3] == 1:
+        daily_results.append('warning')
+      else:
+        daily_results.append('danger')
+
+      # Detect 'www_used_am'
+      if date[5] == 0:
+        daily_results.append('warning')
+      else:
+        daily_results.append('danger')
+
+      # Detect 'teeth_brushed_pm'
+      if date[4] == 1:
+        daily_results.append('warning')
+      else:
+        daily_results.append('danger')
+
+      # Detect 'www_used_pm'
+      if date[6] == 0:
+        daily_results.append('warning')
+      else:
+        daily_results.append('danger')
+
+      total_results.append(daily_results)
+
+
+    num_dates = len(total_results)
+    print(ResultSet)
+
+    return render_template('index.html', num_dates = num_dates, results = total_results)
