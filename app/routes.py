@@ -3,7 +3,7 @@ from app import app
 import os
 import sqlalchemy as db
 
-from flask import request
+from flask import render_template, request
 from flask_sslify import SSLify
 from werkzeug.contrib.fixers import ProxyFix
 
@@ -22,4 +22,4 @@ habits = db.Table('habits', metadata, autoload=True, autoload_with=engine)
 @app.route('/index')
 def index():
     keys = habits.columns.keys()
-    return keys[0]
+    return render_template('index.html')
