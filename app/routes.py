@@ -3,7 +3,7 @@ from app import app
 import os
 import sqlalchemy as db
 
-from flask import render_template, request
+from flask import request
 from flask_sslify import SSLify
 from werkzeug.contrib.fixers import ProxyFix
 
