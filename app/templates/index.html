@@ -4,13 +4,33 @@
 <!-- Strava details section-->
 <section class="py-3 text-center bg-light">
   <div class="container">
-    <h1 class="jumbotron-heading">My App</h1>
+    <h1 class="jumbotron-heading">Habit Tracker</h1>
     <div class="row">
-      <div class="col-sm text-center px-5 py-4">
-       Welcome to the boiler code of this app.
+      <table class="table table-striped">
+        <thead class="thead-dark"> 
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Did not snooze</th>
+            <th scope="col">Drank water</th>
+            <th scope="col">Brushed teeth in morning</th>
+            <th scope="col">Internet-free in morning</th>
+            <th scope="col">Brushed teeth in evening</th>
+            <th scope="col">Internet-free in evening</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sun, Jan 14</th>
+            <td class="table-success"></td>
+            <td class="table-danger"></td>
+            <td class="table-success"></td>
+            <td class="table-danger"></td>
+            <td class="table-success"></td>
+            <td class="table-danger"></td>
+          </tr>
+        </tbody>
+      </table>
      </div>
-   </div>
  </div>
 </section>
-
 {% endblock %}
