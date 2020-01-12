@@ -13,11 +13,13 @@ from werkzeug.contrib.fixers import ProxyFix
 
 # Configure SQLAlchemy connection
 engine = db.create_engine('mysql+mysqldb://miva:fbbjDPcv8wwsrhwq@35.233.54.56/habit_tracker')
-#connection = engine.connect()
-#habits = db.Table('habits', metadata, autoload=True, autoload_with=engine)
+connection = engine.connect()
+metadata = db.MetaData()
+habits = db.Table('habits', metadata, autoload=True, autoload_with=engine)
 
 # Overview of all the routes
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    keys = habits.columns.keys()
+    return keys[0]
