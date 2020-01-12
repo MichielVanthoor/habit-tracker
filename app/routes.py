@@ -7,8 +7,8 @@ from flask_sslify import SSLify
 from werkzeug.contrib.fixers import ProxyFix
 
 # Configure HTTPS redirect
-app.wsgi_app = ProxyFix(app.wsgi_app)
-SSLify(app)
+#app.wsgi_app = ProxyFix(app.wsgi_app)
+#SSLify(app)
 
 # Overview of all the routes
 @app.route('/')
