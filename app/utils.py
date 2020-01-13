@@ -1,11 +1,18 @@
 from datetime import datetime, timedelta
 
-
 def create_html(row):
-    print(row)
     html_list = []
-    html_list.append(row[0])
-    if len(row) > 1:
+
+    # Add the date
+    html_list.append(row[0].strftime("%a, %b %d"))
+
+    # Add html if weekend day
+    if row[0].weekday() >=5:
+      html_list.append('info')
+    else:
+      html_list.append('')
+
+    if len(row) > 2:
       # Detect 'snoozed'
       if row[1] == 0:
         html_list.append('warning')
@@ -48,10 +55,10 @@ def generate_output(resultset):
     today = datetime.today().date()
 
     output = []
-    for i in range(0,9):
+    for i in range(0,6):
       row = []
       day_it = today - timedelta(days= i)
-      row.append(day_it.strftime("%a, %b %d"))
+      row.append(day_it)
 
       for day in resultset:
         if day_it == day[1]:
@@ -60,7 +67,5 @@ def generate_output(resultset):
       row = create_html(row)
 
       output.append(row)
-
-    print(output)
 
     return output
