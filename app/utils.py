@@ -50,7 +50,7 @@ def create_html(row):
         else:
             html_list.append('danger')
     else:
-        for i in range(0, 5):
+        for i in range(0, 6):
             html_list.append('danger')
 
     return html_list
