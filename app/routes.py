@@ -1,6 +1,6 @@
 from app import app
+from app import utils
 
-import datetime
 import os
 import sqlalchemy as db
 
@@ -20,55 +20,7 @@ def index():
     ResultProxy = connection.execute(query)
     ResultSet = ResultProxy.fetchall()
 
-    total_results = []
-    for date in ResultSet:
-      daily_results = []
+    output = utils.generate_output(ResultSet)
+    num = len(output)
 
-      # Detect the date
-      formatted_date = date[1].strftime("%a, %b %d")
-
-      daily_results.append(formatted_date)
-
-      # Detect 'snoozed'
-      if date[2] == 0:
-        daily_results.append('warning')
-      else:
-        daily_results.append('danger')
-
-      # Detect 'water_drank'
-      if date[7] == 1:
-        daily_results.append('warning')
-      else:
-        daily_results.append('danger')
-
-      # Detect 'teeth_brushed_am'
-      if date[3] == 1:
-        daily_results.append('warning')
-      else:
-        daily_results.append('danger')
-
-      # Detect 'www_used_am'
-      if date[5] == 0:
-        daily_results.append('warning')
-      else:
-        daily_results.append('danger')
-
-      # Detect 'teeth_brushed_pm'
-      if date[4] == 1:
-        daily_results.append('warning')
-      else:
-        daily_results.append('danger')
-
-      # Detect 'www_used_pm'
-      if date[6] == 0:
-        daily_results.append('warning')
-      else:
-        daily_results.append('danger')
-
-      total_results.append(daily_results)
-
-
-    num_dates = len(total_results)
-    print(ResultSet)
-
-    return render_template('index.html', num_dates = num_dates, results = total_results)
+    return render_template('index.html', num_dates = num, results = output)
