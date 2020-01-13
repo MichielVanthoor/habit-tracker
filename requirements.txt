@@ -1,6 +1,4 @@
 Flask
 Gunicorn
-werkzeug
-flask_sslify
 sqlalchemy
 mysqlclient

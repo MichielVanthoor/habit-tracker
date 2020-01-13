@@ -5,12 +5,6 @@ import os
 import sqlalchemy as db
 
 from flask import render_template, request
-from flask_sslify import SSLify
-from werkzeug.contrib.fixers import ProxyFix
-
-# Configure HTTPS redirect
-#app.wsgi_app = ProxyFix(app.wsgi_app)
-#SSLify(app)
 
 # Configure SQLAlchemy connection
 engine = db.create_engine('mysql+mysqldb://miva:fbbjDPcv8wwsrhwq@35.233.54.56/habit_tracker')
