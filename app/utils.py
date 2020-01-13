@@ -49,6 +49,9 @@ def create_html(row):
             html_list.append('warning')
         else:
             html_list.append('danger')
+    else:
+        for i in range(0, 5):
+            html_list.append('danger')
 
     return html_list
 
