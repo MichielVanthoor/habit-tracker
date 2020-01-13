@@ -1,5 +1,6 @@
 from app import app
 
+import datetime
 import os
 import sqlalchemy as db
 
@@ -30,7 +31,9 @@ def index():
       daily_results = []
 
       # Detect the date
-      daily_results.append(date[1])
+      formatted_date = date[1].strftime("%a, %b %d")
+
+      daily_results.append(formatted_date)
 
       # Detect 'snoozed'
       if date[2] == 0:

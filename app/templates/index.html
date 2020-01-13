@@ -5,6 +5,12 @@
 <section class="py-3 text-center bg-light">
   <div class="container">
     <h1 class="jumbotron-heading">Habit Tracker</h1>
+  </div>
+</section>
+
+
+<section class="py-3 text-center">
+  <div class="container">
     <div class="row">
       <table class="table table-striped">
         <thead class="thead-dark"> 
@@ -12,10 +18,10 @@
             <th scope="col"></th>
             <th scope="col">Did not snooze</th>
             <th scope="col">Drank water</th>
-            <th scope="col">Brushed teeth in morning</th>
-            <th scope="col">Internet-free in morning</th>
-            <th scope="col">Brushed teeth in evening</th>
-            <th scope="col">Internet-free in evening</th>
+            <th scope="col">Brushed teeth AM</th>
+            <th scope="col">Internet-free AM</th>
+            <th scope="col">Brushed teeth PM</th>
+            <th scope="col">Internet-free PM</th>
           </tr>
         </thead>
         <tbody>
@@ -33,7 +39,13 @@
           {%endfor%} 
         </tbody>
       </table>
-     </div>
- </div>
+    </div>
+
+  </div>
 </section>
+
+
+
+
+
 {% endblock %}
