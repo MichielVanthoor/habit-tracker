@@ -24,7 +24,10 @@ def index():
     ResultProxy = connection.execute(query)
     ResultSet = ResultProxy.fetchall()
 
-    output = utils.generate_output(ResultSet)
-    num = len(output)
+    results = utils.generate_output(ResultSet)
+    num_dates = len(results)
 
-    return render_template('index.html', num_dates=num, results=output)
+    streaks = [2,2,2,2,2,2]
+
+
+    return render_template('index.html', num_dates=num_dates, results=results, streaks=streaks)
