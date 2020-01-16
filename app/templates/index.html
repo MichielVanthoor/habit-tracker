@@ -25,14 +25,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="table-">Current Streak</td>
-            <td class="table-">{{ streaks[0] }}</td>
-            <td class="table-">{{ streaks[1] }}</td>
-            <td class="table-">{{ streaks[2] }}</td>
-            <td class="table-">{{ streaks[3] }}</td>
-            <td class="table-">{{ streaks[4] }}</td>
-            <td class="table-">{{ streaks[5] }}</td>
+          <tr class="table-Primary">
+            <td>Streak Count</td>
+            <td>{{ streaks[0] }}</td>
+            <td>{{ streaks[1] }}</td>
+            <td>{{ streaks[2] }}</td>
+            <td>{{ streaks[3] }}</td>
+            <td>{{ streaks[4] }}</td>
+            <td>{{ streaks[5] }}</td>
           </tr>
           <!-- For loop logic of jinja template -->
           {%for i in range(0, num_dates)%} 
