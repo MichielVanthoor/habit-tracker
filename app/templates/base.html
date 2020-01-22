@@ -39,5 +39,44 @@
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBCnH_jETnW5fPyUFm5psNgrjUe9aGpdVs",
+        authDomain: "habit-tracker-264816.firebaseapp.com",
+        databaseURL: "https://habit-tracker-264816.firebaseio.com",
+        projectId: "habit-tracker-264816",
+        storageBucket: "habit-tracker-264816.appspot.com",
+        messagingSenderId: "729074257011",
+        appId: "1:729074257011:web:cf3fca5f65b74dfc906e06"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    var db = firebase.firestore();
+    db.collection("users").doc("F3zKTfzFwe6ClSGXMKo7").collection("habits").onSnapshot(function(querySnapshot) {
+        var row = [];
+        querySnapshot.forEach(function(doc) {
+            row.push(doc.data().snoozed);
+        });
+        console.log("Snoozed?: ", row.join(", "));
+    });
+
+
+
+
+
+
+
+    </script>
+
+
+
     </body>
 </html>
