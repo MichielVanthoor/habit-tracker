@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Strava details section-->
+<!-- Heading Section-->
 <section class="py-3 text-center bg-light">
   <div class="container">
     <h1 class="jumbotron-heading">Habit Tracker</h1>
   </div>
 </section>
 
-
+<!-- Tabe Section-->
 <section class="py-3 text-center">
   <div class="container">
     <div class="row">
-      <table class="table table-sm">
+      <table id="table" class="table table-sm">
         <thead class="thead-dark"> 
           <tr>
             <th scope="col"></th>
@@ -24,28 +24,7 @@
             <th scope="col">No internet PM</th>
           </tr>
         </thead>
-        <tbody>
-          <tr class="table-Primary">
-            <td>Streak Count</td>
-            <td>{{ streaks[0] }}</td>
-            <td>{{ streaks[1] }}</td>
-            <td>{{ streaks[2] }}</td>
-            <td>{{ streaks[3] }}</td>
-            <td>{{ streaks[4] }}</td>
-            <td>{{ streaks[5] }}</td>
-          </tr>
-          <!-- For loop logic of jinja template -->
-          {%for i in range(0, num_dates)%} 
-          <tr>
-            <td class="table-{{ results[i][1] }}">{{ results[i][0] }}</th>
-            <td class="table-{{ results[i][2] }}"></td>
-            <td class="table-{{ results[i][3] }}"></td>
-            <td class="table-{{ results[i][4] }}"></td>
-            <td class="table-{{ results[i][5] }}"></td>
-            <td class="table-{{ results[i][6] }}"></td>
-            <td class="table-{{ results[i][7] }}"></td>
-          </tr>
-          {%endfor%} 
+        <tbody id='habits'>
         </tbody>
       </table>
     </div>
